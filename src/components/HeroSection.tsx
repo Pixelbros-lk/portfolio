@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from "react";
 import {
   ArrowRight,
   MessageCircle,
-  Sparkles
 } from "lucide-react";
 import gsap from "gsap";
 
@@ -13,7 +12,7 @@ interface HeroSectionProps {
   onOpenEstimator: () => void;
 }
 
-export default function HeroSection({ onOpenContact, onOpenEstimator }: HeroSectionProps) {
+export default function HeroSection({ onOpenContact }: HeroSectionProps) {
   const heroRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);

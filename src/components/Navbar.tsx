@@ -2,18 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import { 
-  Layers, 
   Sparkles, 
   ArrowRight, 
   Search, 
   Menu, 
   X, 
-  Code2, 
-  Smartphone, 
-  Server, 
-  ChevronDown,
-  Terminal,
-  Zap
 } from "lucide-react";
 
 interface NavbarProps {
@@ -24,7 +17,6 @@ interface NavbarProps {
 export default function Navbar({ onOpenContact, onOpenSearch }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [servicesDropdown, setServicesDropdown] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,14 +79,14 @@ export default function Navbar({ onOpenContact, onOpenSearch }: NavbarProps) {
             </a>
 
             <a
-              href="#showcase"
+              href="#work"
               className="px-3 py-1.5 text-xs font-semibold text-zinc-600 hover:text-[#FE4845] rounded-full hover:bg-zinc-100 transition-colors flex items-center gap-1.5"
             >
               Work
             </a>
 
             <a
-              href="#"
+              href="#footer"
               className="px-3 py-1.5 text-xs font-semibold text-zinc-600 hover:text-[#FE4845] rounded-full hover:bg-zinc-100 transition-colors"
             >
               Contact
@@ -139,57 +131,40 @@ export default function Navbar({ onOpenContact, onOpenSearch }: NavbarProps) {
         {mobileMenuOpen && (
           <div className="md:hidden mt-3 mx-4 p-4 rounded-2xl bg-white border border-zinc-200 shadow-xl flex flex-col gap-3">
             <a
+              href="#"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between p-2.5 rounded-xl text-sm font-semibold text-zinc-600 hover:text-[#FE4845] hover:bg-zinc-50"
+            >
+              <span>Home</span>
+            </a>
+            <a
+              href="#about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between p-2.5 rounded-xl text-sm font-semibold text-zinc-600 hover:text-[#FE4845] hover:bg-zinc-50"
+            >
+              <span>About</span>
+            </a>
+            <a
               href="#services"
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-2.5 rounded-xl text-sm font-semibold text-zinc-600 hover:text-[#FE4845] hover:bg-zinc-50"
             >
-              <span>Services</span>
-              <span className="text-xs text-[#FE4845]">Web • Mobile • Cloud</span>
+              <span>Service</span>
             </a>
             <a
-              href="#showcase"
+              href="#work"
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-2.5 rounded-xl text-sm font-semibold text-zinc-600 hover:text-[#FE4845] hover:bg-zinc-50"
             >
-              <span>Our Work</span>
-              <span className="text-xs text-[#FE4845]">12 Projects</span>
+              <span>Work</span>
             </a>
             <a
-              href="#architecture"
+              href="#footer"
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-2.5 rounded-xl text-sm font-semibold text-zinc-600 hover:text-[#FE4845] hover:bg-zinc-50"
             >
-              <span>What We Do</span>
-              <span className="text-xs text-[#FE4845]">Quality Driven</span>
+              <span>Contact</span>
             </a>
-            <a
-              href="#estimator"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between p-2.5 rounded-xl text-sm font-semibold text-zinc-600 hover:text-[#FE4845] hover:bg-zinc-50"
-            >
-              <span>Project Estimator</span>
-              <span className="text-xs text-amber-500">Live Scope</span>
-            </a>
-            <a
-              href="#faq"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between p-2.5 rounded-xl text-sm font-semibold text-zinc-600 hover:text-[#FE4845] hover:bg-zinc-50"
-            >
-              <span>FAQ</span>
-            </a>
-
-            <div className="pt-3 border-t border-zinc-200 flex flex-col gap-2">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenContact();
-                }}
-                className="w-full py-2.5 rounded-xl bg-linear-to-r from-[#FE4845] to-[#FF7573] text-white text-sm font-bold flex items-center justify-center gap-2 shadow-md shadow-[#FE4845]/20"
-              >
-                <Sparkles className="w-4 h-4" />
-                Start Your Project
-              </button>
-            </div>
           </div>
         )}
       </header>

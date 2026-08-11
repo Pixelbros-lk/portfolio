@@ -48,7 +48,7 @@ export default function FaqSection() {
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-900 leading-tight">
             Everything you need to know about partnering with{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FE4845] to-[#FF7573]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#FE4845] to-[#FF7573]">
               PixelBros.
             </span>
           </h2>

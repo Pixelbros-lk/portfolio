@@ -137,8 +137,8 @@ export default function TestimonialsMarquee() {
         
         {/* Row 1: Scrolled Left */}
         <div className="relative overflow-hidden py-1">
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
 
           <div className="animate-marquee gap-16 md:gap-24">
             {[...row1, ...row1, ...row1].map((item, idx) => (
@@ -157,8 +157,8 @@ export default function TestimonialsMarquee() {
 
         {/* Row 2: Scrolled Right */}
         <div className="relative overflow-hidden py-1">
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
 
           <div className="animate-marquee-reverse gap-16 md:gap-24">
             {[...row2, ...row2, ...row2].map((item, idx) => (
@@ -177,8 +177,8 @@ export default function TestimonialsMarquee() {
 
         {/* Row 3: Scrolled Left */}
         <div className="relative overflow-hidden py-1">
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
 
           <div className="animate-marquee gap-16 md:gap-24">
             {[...row3, ...row3, ...row3].map((item, idx) => (
@@ -213,10 +213,10 @@ export default function TestimonialsMarquee() {
 
         {/* Masonry Columns Wrapper with bottom gradient blur */}
         <div className={`relative transition-all duration-700 ease-in-out ${
-          isExpanded ? "max-h-[2200px]" : "max-h-[460px] overflow-hidden"
+          isExpanded ? "max-h-[2200px]" : "max-h-115 overflow-hidden"
         }`}>
           {/* Masonry Columns Layout */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]">
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:balance]">
             {clientReviews.map((item, idx) => (
               <div
                 key={idx}
@@ -249,7 +249,7 @@ export default function TestimonialsMarquee() {
 
           {/* Bottom Blur Mask with Show All Button */}
           {!isExpanded && (
-            <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/85 to-transparent pointer-events-none z-20 flex items-end justify-center pb-4 backdrop-blur-[1px]">
+            <div className="absolute bottom-0 left-0 right-0 h-48 bg-linear-to-t from-white via-white/85 to-transparent pointer-events-none z-20 flex items-end justify-center pb-4 backdrop-blur-[1px]">
               <button
                 onClick={() => setIsExpanded(true)}
                 className="pointer-events-auto px-6 py-3 rounded-full bg-zinc-900 hover:bg-[#FE4845] text-white font-bold text-xs shadow-md flex items-center gap-1.5 cursor-pointer border border-transparent transition-all hover:scale-105 active:scale-95"

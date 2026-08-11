@@ -182,8 +182,6 @@ export default function About() {
             {/* Background Grid Pattern Accent inside graphic area */}
             <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
 
-            {/* Overlapping Mockup Cards with Floating GSAP Effect */}
-
             {/* Card 1: Core Performance Metric (Top Left) */}
             <div
               ref={floatCard1Ref}

@@ -9,14 +9,14 @@ interface FooterProps {
 
 export default function Footer({ onOpenContact }: FooterProps) {
   return (
-    <footer className="relative bg-zinc-50 border-t border-zinc-200 pt-20 pb-12 overflow-hidden">
+    <footer id="footer" className="relative bg-zinc-50 border-t border-zinc-200 pt-20 pb-12 overflow-hidden">
       {/* Ambient background glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-[#FE4845]/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-150 h-62.5 bg-[#FE4845]/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Massive Pre-Footer CTA Banner */}
-        <div className="mb-20 p-8 sm:p-14 rounded-3xl bg-gradient-to-r from-[#FE4845] via-[#FF7573] to-[#D02927] border border-transparent shadow-xl shadow-[#FE4845]/10 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="mb-20 p-8 sm:p-14 rounded-3xl bg-linear-to-r from-[#FE4845] via-[#FF7573] to-[#D02927] border border-transparent shadow-xl shadow-[#FE4845]/10 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="max-w-xl text-center md:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-xs font-mono text-white mb-3">
               <Sparkles className="w-3.5 h-3.5" />
