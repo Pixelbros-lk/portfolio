@@ -10,7 +10,6 @@ import TestimonialsMarquee from "@/components/TestimonialsMarquee";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
-import SearchModal from "@/components/SearchModal";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -100,13 +99,6 @@ export default function Home() {
         isOpen={contactModalOpen}
         onClose={() => setContactModalOpen(false)}
         initialScope={contactInitialScope}
-      />
-
-      {/* ⌘K Quick Search Modal */}
-      <SearchModal
-        isOpen={searchModalOpen}
-        onClose={() => setSearchModalOpen(false)}
-        onSelectProject={handleSelectSearchResult}
       />
     </div>
   );

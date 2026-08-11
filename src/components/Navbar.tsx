@@ -73,21 +73,21 @@ export default function Navbar({ onOpenContact, onOpenSearch }: NavbarProps) {
             </a>
 
             <a
-              href="#"
+              href="#about"
               className="px-3 py-1.5 text-xs font-semibold text-zinc-600 hover:text-[#FE4845] rounded-full hover:bg-zinc-100 transition-colors flex items-center gap-1.5"
             >
               About
             </a>
 
             <a
-              href="#architecture"
+              href="#services"
               className="px-3 py-1.5 text-xs font-semibold text-zinc-600 hover:text-[#FE4845] rounded-full hover:bg-zinc-100 transition-colors flex items-center gap-1.5"
             >
               Services
             </a>
 
             <a
-              href="#architecture"
+              href="#showcase"
               className="px-3 py-1.5 text-xs font-semibold text-zinc-600 hover:text-[#FE4845] rounded-full hover:bg-zinc-100 transition-colors flex items-center gap-1.5"
             >
               Work

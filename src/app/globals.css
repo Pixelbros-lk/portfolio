@@ -123,4 +123,50 @@
   -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
 }
 
+/* Splash loading */
+.splash-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, rgba(254, 72, 69, 0.14), transparent 28%),
+    radial-gradient(circle at 20% 20%, rgba(255, 117, 115, 0.16), transparent 22%),
+    radial-gradient(circle at bottom right, rgba(208, 41, 39, 0.12), transparent 30%),
+    linear-gradient(160deg, #ffffff 0%, #fff6f5 52%, #ffffff 100%);
+  z-index: 9999;
+  pointer-events: all;
+}
+
+.splash-image {
+  width: 100%;
+  height: auto;
+  will-change: transform, opacity;
+  object-fit: contain;
+}
+
+.splash-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), transparent 85%);
+  pointer-events: none;
+}
+
+.splash-overlay::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 24vh;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.58), transparent);
+  pointer-events: none;
+}
+
+
 

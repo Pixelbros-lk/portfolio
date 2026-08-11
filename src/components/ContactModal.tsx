@@ -100,10 +100,6 @@ export default function ContactModal({ isOpen, onClose, initialScope = "" }: Con
             
             {/* Header */}
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FE4845]/10 border border-[#FE4845]/20 text-[#FE4845] text-xs font-mono mb-2">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>DIRECT TO ARCHITECT</span>
-              </div>
               <h3 className="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-tight">
                 Let's architect your vision.
               </h3>
@@ -186,29 +182,6 @@ export default function ContactModal({ isOpen, onClose, initialScope = "" }: Con
                     </button>
                   );
                 })}
-              </div>
-            </div>
-
-            {/* Budget Range */}
-            <div>
-              <label className="block text-xs font-mono text-zinc-500 uppercase mb-2 font-bold">
-                Estimated Project Budget
-              </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {["$10k - $25k", "$25k - $50k", "$50k - $100k", "$100k+"].map((b) => (
-                  <button
-                    type="button"
-                    key={b}
-                    onClick={() => setBudget(b)}
-                    className={`py-2 px-3 rounded-xl border text-xs font-mono font-bold transition-all ${
-                      budget === b
-                        ? "bg-[#FE4845] border-transparent text-white shadow-sm"
-                        : "bg-zinc-50 border-zinc-200 text-zinc-600 hover:text-zinc-900"
-                    }`}
-                  >
-                    {b}
-                  </button>
-                ))}
               </div>
             </div>
 

@@ -151,7 +151,7 @@ export default function ServicesPinned({ onOpenContact }: ServicesPinnedProps) {
                 <div className="pt-4 flex justify-center">
                   <button
                     onClick={() => onOpenContact(item.title)}
-                    className="px-6 py-3.5 rounded-full bg-gradient-to-r from-[#FE4845] via-[#FE4845] to-[#FF7573] text-white font-bold text-xs shadow-lg shadow-[#FE4845]/15 hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer border border-transparent"
+                    className="px-6 py-3.5 rounded-full bg-linear-to-r from-[#FE4845] via-[#FE4845] to-[#FF7573] text-white font-bold text-xs shadow-lg shadow-[#FE4845]/15 hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer border border-transparent"
                   >
                     <span>{item.cta}</span>
                     <ArrowRight className="w-4 h-4" />
