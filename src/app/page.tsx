@@ -10,11 +10,13 @@ import TestimonialsMarquee from "@/components/Reviews";
 import FaqSection from "@/components/Faq";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
+import SplashScreen from "@/components/SplashScreen";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Home() {
   const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
   const [contactInitialScope, setContactInitialScope] = useState("");
   const [searchModalOpen, setSearchModalOpen] = useState(false);
 
@@ -65,6 +67,9 @@ export default function Home() {
 
       {/* Main Content Flow */}
       <main>
+        {showSplash && (
+          <SplashScreen onComplete={() => setShowSplash(false)} />
+        )}
         {/* 1. Hero Section with Live Dual-Device Mockup */}
         <HeroSection
           onOpenContact={() => handleOpenContact()}

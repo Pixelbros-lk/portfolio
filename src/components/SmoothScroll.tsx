@@ -16,7 +16,6 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
 		const lenis = new Lenis({
 			lerp: 0.085,
 			smoothWheel: true,
-			smoothTouch: false,
 			wheelMultiplier: 1,
 			anchors: true,
 		});

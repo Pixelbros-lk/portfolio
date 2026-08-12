@@ -15,10 +15,10 @@ export default function MobbinShowcase({ onOpenContact }: MobbinShowcaseProps) {
   const portfolios = [
     {
       id: "tarbid",
-      title: "Tarbid - BNPL",
-      badge: "Mobile App",
-      link: "https://pixelbros.dev/portfolio/tarbid",
-      imageUrl: "/images/preview.webp"
+      title: "Sayu Yasanga - Photography",
+      badge: "Custom Website",
+      link: "https://www.sayuyasangaweddings.com/",
+      imageUrl: "/images/sayu.webp"
     },
     {
       id: "osciloc",
@@ -29,7 +29,7 @@ export default function MobbinShowcase({ onOpenContact }: MobbinShowcaseProps) {
     }
   ];
 
-  // The scroll function attached to our buttons
+  // The scroll function attached to buttons
   const scroll = (direction: "left" | "right") => {
     if (trackRef.current) {
       // Calculate how far to scroll (width of one card + the 32px gap)
@@ -86,7 +86,7 @@ export default function MobbinShowcase({ onOpenContact }: MobbinShowcaseProps) {
       <div className="w-full">
         <div 
           ref={trackRef} 
-          className="flex flex-row flex-nowrap gap-8 overflow-x-auto snap-x snap-mandatory px-4 sm:px-6 lg:px-8 pb-12 pt-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          className="flex flex-row flex-nowrap gap-8 overflow-x-auto snap-x snap-mandatory px-4 sm:px-6 lg:px-8 pb-12 pt-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none"
         >
           {portfolios.map((project, index) => (
             <a
@@ -108,7 +108,7 @@ export default function MobbinShowcase({ onOpenContact }: MobbinShowcaseProps) {
                   sizes="(max-width: 768px) 90vw, 50vw"
                   priority={index === 0}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
               {/* Right Side: Project Meta Content */}
