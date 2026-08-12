@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@300;400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #05070c;
+    --bg-soft: #0a0e17;
+    --ink: #f2f1ea;
+    --ink-dim: #7c8494;
+    --gold: #d4af6a;
+    --steel: #4a6fa5;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html, body{
+    width:100%; height:100%;
+    overflow:hidden;
+    background: var(--bg);
+    color: var(--ink);
+    font-family:'Inter', sans-serif;
+  }
+  #canvas-container{
+    position:absolute; inset:0;
+    z-index:1;
+  }
+  #canvas-container canvas{ display:block; }
+
+  .vignette{
+    position:absolute; inset:0;
+    z-index:2;
+    pointer-events:none;
+    background:
+      radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(5,7,12,0.55) 100%);
+  }
+
+  .content{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%, -50%);
+    z-index:3;
+    text-align:center;
+    pointer-events:none;
+    width:min(90vw, 720px);
+  }
+
+  .status-line{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color: var(--gold);
+    opacity:0.85;
+    margin-bottom:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+  }
+  .status-line::before,
+  .status-line::after{
+    content:"";
+    width:24px; height:1px;
+    background: var(--gold);
+    opacity:0.5;
+  }
+  .dot{
+    width:6px; height:6px;
+    border-radius:50%;
+    background: var(--gold);
+    display:inline-block;
+    animation: pulse 2.2s ease-in-out infinite;
+  }
+
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    letter-spacing:6px;
+    text-transform:uppercase;
+    margin-bottom:22px;
+    background: linear-gradient(180deg, #ffffff 0%, #c9cdd6 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  p{
+    font-family:'Inter', sans-serif;
+    font-weight:300;
+    font-size:1.05rem;
+    letter-spacing:1.5px;
+    color: var(--ink-dim);
+    max-width:480px;
+    margin:0 auto;
+  }
+
+  .coord{
+    position:absolute;
+    bottom:32px; left:32px;
+    z-index:3;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.65rem;
+    letter-spacing:1.5px;
+    color: var(--ink-dim);
+    opacity:0.5;
+    pointer-events:none;
+  }
+  .coord span{ color: var(--steel); }
+
+  @keyframes pulse{
+    0%, 100%{ opacity:0.4; transform:scale(0.85); }
+    50%{ opacity:1; transform:scale(1.1); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .dot{ animation:none; }
+  }
+</style>
+</head>
+<body>
+
+  <div id="canvas-container"></div>
+  <div class="vignette"></div>
+
+  <div class="content">
+    <div class="status-line"><span class="dot"></span>Status &mdash; Assembling</div>
+    <h1>Coming Soon</h1>
+    <p>We are building something extraordinary.</p>
+  </div>
+
+  <div class="coord">REV <span>01</span> &nbsp;/&nbsp; ETA <span>PENDING</span></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    (function(){
+      const container = document.getElementById('canvas-container');
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+      camera.position.z = 9;
+
+      const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      container.appendChild(renderer.domElement);
+
+      // ---- Build target structure: an icosahedron's vertices ----
+      const icoGeo = new THREE.IcosahedronGeometry(3, 1);
+      const posAttr = icoGeo.attributes.position;
+
+      // De-duplicate vertices (IcosahedronGeometry has shared verts per-face)
+      const seen = new Map();
+      const targets = [];
+      for (let i = 0; i < posAttr.count; i++){
+        const x = posAttr.getX(i), y = posAttr.getY(i), z = posAttr.getZ(i);
+        const key = [x.toFixed(3), y.toFixed(3), z.toFixed(3)].join(',');
+        if (!seen.has(key)){
+          seen.set(key, true);
+          targets.push(new THREE.Vector3(x, y, z));
+        }
+      }
+
+      const COUNT = targets.length;
+
+      // Each particle starts scattered, drifts toward its target, and holds/breathes
+      const scatterRadius = 9;
+      const startPositions = [];
+      const phaseOffsets = [];
+      for (let i = 0; i < COUNT; i++){
+        const dir = new THREE.Vector3(
+          Math.random() * 2 - 1,
+          Math.random() * 2 - 1,
+          Math.random() * 2 - 1
+        ).normalize().multiplyScalar(scatterRadius * (0.6 + Math.random() * 0.6));
+        startPositions.push(dir);
+        phaseOffsets.push(Math.random() * Math.PI * 2);
+      }
+
+      const positions = new Float32Array(COUNT * 3);
+      const pointsGeo = new THREE.BufferGeometry();
+      pointsGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+      const pointsMat = new THREE.PointsMaterial({
+        color: 0xd4af6a,
+        size: 0.065,
+        transparent: true,
+        opacity: 0.95,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false
+      });
+      const pointCloud = new THREE.Points(pointsGeo, pointsMat);
+      scene.add(pointCloud);
+
+      // ---- Edges (wireframe) fading in as structure assembles ----
+      const edgesGeo = new THREE.EdgesGeometry(icoGeo);
+      const edgesMat = new THREE.LineBasicMaterial({
+        color: 0x4a6fa5,
+        transparent: true,
+        opacity: 0,
+        blending: THREE.AdditiveBlending
+      });
+      const wireframe = new THREE.LineSegments(edgesGeo, edgesMat);
+      scene.add(wireframe);
+
+      // Subtle secondary shell for depth
+      const shellGeo = new THREE.IcosahedronGeometry(4.4, 0);
+      const shellMat = new THREE.LineBasicMaterial({
+        color: 0x2c3446,
+        transparent: true,
+        opacity: 0.25
+      });
+      const shell = new THREE.LineSegments(new THREE.EdgesGeometry(shellGeo), shellMat);
+      scene.add(shell);
+
+      // ---- Mouse parallax ----
+      let mouseX = 0, mouseY = 0;
+      window.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+        mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+      });
+
+      const clock = new THREE.Clock();
+      const CYCLE = 9; // seconds: scatter -> assembled -> hold -> re-scatter
+
+      function easeInOutCubic(t){
+        return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
+      }
+
+      function animate(){
+        requestAnimationFrame(animate);
+        const t = clock.getElapsedTime();
+
+        // Assembly progress oscillates smoothly between scattered (0) and formed (1)
+        const cycleT = (t % CYCLE) / CYCLE;
+        let assembly;
+        if (cycleT < 0.4){
+          assembly = easeInOutCubic(cycleT / 0.4);          // assembling
+        } else if (cycleT < 0.75){
+          assembly = 1;                                      // holding, formed
+        } else {
+          assembly = 1 - easeInOutCubic((cycleT - 0.75) / 0.25); // dissolving
+        }
+
+        for (let i = 0; i < COUNT; i++){
+          const start = startPositions[i];
+          const target = targets[i];
+          const breathe = Math.sin(t * 0.6 + phaseOffsets[i]) * 0.05;
+
+          const x = THREE.MathUtils.lerp(start.x, target.x, assembly);
+          const y = THREE.MathUtils.lerp(start.y, target.y, assembly);
+          const z = THREE.MathUtils.lerp(start.z, target.z, assembly);
+
+          positions[i*3]     = x + breathe * assembly;
+          positions[i*3 + 1] = y + breathe * assembly;
+          positions[i*3 + 2] = z;
+        }
+        pointsGeo.attributes.position.needsUpdate = true;
+
+        edgesMat.opacity = Math.max(0, (assembly - 0.5) * 1.4) * 0.55;
+
+        const rotY = t * 0.08;
+        pointCloud.rotation.y = rotY;
+        wireframe.rotation.y = rotY;
+        shell.rotation.y = -t * 0.03;
+        shell.rotation.x = t * 0.015;
+
+        camera.position.x += (mouseX * 1.2 - camera.position.x) * 0.03;
+        camera.position.y += (-mouseY * 1.2 - camera.position.y) * 0.03;
+        camera.lookAt(scene.position);
+
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+    })();
+  </script>
+</body>
+</html>
