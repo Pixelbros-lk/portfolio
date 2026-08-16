@@ -21,11 +21,11 @@ export default function MobbinShowcase({ onOpenContact }: MobbinShowcaseProps) {
       imageUrl: "/images/sayu.webp"
     },
     {
-      id: "osciloc",
-      title: "Osciloc - AI Productivity",
-      badge: "Landing Page",
-      link: "https://pixelbros.dev/portfolio/osciloc",
-      imageUrl: "/images/preview.webp"
+      id: "steam",
+      title: "Steam.lk",
+      badge: "Custom Website",
+      link: "https://steam.lk/",
+      imageUrl: "/images/steam.webp"
     }
   ];
 

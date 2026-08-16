@@ -39,6 +39,31 @@ export default function ContactModal({ isOpen, onClose, initialScope = "" }: Con
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Format the WhatsApp message text with details
+    const platformLabel = 
+      platform === "web" ? "Custom Web" : 
+      platform === "mobile" ? "Mobile App" : 
+      platform === "fullstack" ? "Full-Stack" : platform;
+
+    const messageText = `*New Project Inquiry* 🚀\n\n` +
+      `*Name:* ${name}\n` +
+      `*Email:* ${email}\n` +
+      `*Company:* ${company || "Not provided"}\n` +
+      `*Platform Focus:* ${platformLabel}\n` +
+      `*Budget Range:* ${budget}\n\n` +
+      `*Project Scope & Details:*\n${message || "No project details provided."}`;
+
+    const encodedMessage = encodeURIComponent(messageText);
+    const whatsappUrl = `https://wa.me/94705368016?text=${encodedMessage}`;
+
+    // Open WhatsApp in a new tab synchronously BEFORE any state changes to ensure user gesture context is preserved
+    try {
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    } catch (err) {
+      console.error("Failed to open WhatsApp window:", err);
+    }
+
     setIsSubmitting(true);
 
     setTimeout(() => {

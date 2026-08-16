@@ -12,7 +12,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const letters = [
-    { char: "p", hasShape: false },
+    { char: "P", hasShape: false },
     { 
       char: "i", 
       hasShape: true, 
@@ -110,7 +110,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
         }}
       />
 
-      <div className="relative z-10 flex items-center gap-1 sm:gap-2 text-zinc-900 font-bold text-5xl sm:text-7xl lowercase tracking-tighter">
+      <div className="relative z-10 flex items-center gap-1 sm:gap-2 text-zinc-900 font-bold text-5xl sm:text-7xl tracking-tighter">
         {letters.map((item, index) => (
           <div 
             key={index} 

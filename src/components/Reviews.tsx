@@ -10,7 +10,7 @@ export default function TestimonialsMarquee() {
   const row1 = [
     { name: "Next.js", logo: "nextjs" },
     { name: "TypeScript", logo: "typescript" },
-    { name: "React Native", logo: "reactnative" },
+    { name: "Flutter", logo: "flutter" },
     { name: "Swift / SwiftUI", logo: "swift" },
     { name: "Tailwind CSS", logo: "tailwindcss" }
   ];
@@ -78,7 +78,7 @@ export default function TestimonialsMarquee() {
       initials: "MT",
       avatarBg: "bg-amber-600",
       content:
-        "The React Native app PixelBros built for us runs at a flawless 120 FPS. They delivered absolute top-tier quality ahead of schedule.",
+        "The Flutter app PixelBros built for us runs at a flawless 120 FPS. They delivered absolute top-tier quality ahead of schedule.",
     }
   ];
 
@@ -88,8 +88,8 @@ export default function TestimonialsMarquee() {
         return <Icon icon="logos:nextjs-icon" className="w-10 h-10 shrink-0" />;
       case "typescript":
         return <Icon icon="logos:typescript-icon" className="w-10 h-10 shrink-0" />;
-      case "reactnative":
-        return <Icon icon="logos:react" className="w-10 h-10 shrink-0" />;
+      case "flutter":
+        return <Icon icon="logos:flutter" className="w-10 h-10 shrink-0" />;
       case "swift":
         return <Icon icon="logos:swift" className="w-10 h-10 shrink-0" />;
       case "tailwindcss":
@@ -197,85 +197,8 @@ export default function TestimonialsMarquee() {
 
       </div>
 
-      {/* CLIENT TESTIMONIALS (MASONRY FEEDBACK GRID) */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-50 border border-zinc-200 text-xs font-mono text-[#FE4845] mb-4">
-            <Award className="w-3.5 h-3.5" />
-            <span>CLIENT REVIEWS</span>
-          </div>
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-900 leading-tight">
-            What our clients are saying.
-          </h2>
-        </div>
-
-        {/* Masonry Columns Wrapper with bottom gradient blur */}
-        <div className={`relative transition-all duration-700 ease-in-out ${
-          isExpanded ? "max-h-[2200px]" : "max-h-115 overflow-hidden"
-        }`}>
-          {/* Masonry Columns Layout */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:balance]">
-            {clientReviews.map((item, idx) => (
-              <div
-                key={idx}
-                className="break-inside-avoid bg-white border border-zinc-200 p-6 rounded-2xl shadow-sm flex flex-col gap-4 mb-6 hover:border-[#FE4845]/30 transition-all duration-300 group"
-              >
-                {/* Reviewer Header info */}
-                <div className="flex items-center gap-3">
-                  <div
-                    className={`w-10 h-10 rounded-full ${item.avatarBg} text-white font-bold text-sm flex items-center justify-center shadow-sm shrink-0`}
-                  >
-                    {item.initials}
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-zinc-900 leading-none">
-                      {item.name}
-                    </h4>
-                    <span className="text-xs text-zinc-500 mt-1 block">
-                      {item.company}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Review Content */}
-                <p className="text-sm text-zinc-600 leading-relaxed font-normal">
-                  "{item.content}"
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom Blur Mask with Show All Button */}
-          {!isExpanded && (
-            <div className="absolute bottom-0 left-0 right-0 h-48 bg-linear-to-t from-white via-white/85 to-transparent pointer-events-none z-20 flex items-end justify-center pb-4 backdrop-blur-[1px]">
-              <button
-                onClick={() => setIsExpanded(true)}
-                className="pointer-events-auto px-6 py-3 rounded-full bg-zinc-900 hover:bg-[#FE4845] text-white font-bold text-xs shadow-md flex items-center gap-1.5 cursor-pointer border border-transparent transition-all hover:scale-105 active:scale-95"
-              >
-                <span>Read All Reviews</span>
-                <ChevronDown className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          )}
-        </div>
-
-        {/* Show Less Button when expanded */}
-        {isExpanded && (
-          <div className="mt-8 flex justify-center">
-            <button
-              onClick={() => setIsExpanded(false)}
-              className="px-6 py-3 rounded-full bg-zinc-100 hover:bg-zinc-200 text-zinc-700 font-bold text-xs transition-all border border-zinc-200 flex items-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95"
-            >
-              <span>Show Less</span>
-              <ChevronUp className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        )}
-
-      </div>
-
+      {/* Client Reviews */}
+      
     </section>
   );
 }

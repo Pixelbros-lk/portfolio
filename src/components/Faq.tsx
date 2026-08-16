@@ -8,28 +8,56 @@ export default function FaqSection() {
 
   const faqs = [
     {
-      q: "How fast can PixelBros design and ship our MVP?",
-      a: "Our typical MVP delivery timeframe is between 3 to 6 weeks depending on feature complexity and whether you select our Standard or High-Velocity Blitz Sprint. We work in rapid 1-week iterative sprints with continuous live staging builds so you test real software every 7 days."
+      q: "What does Pixelbros do?",
+      a: "Pixelbros is a web and software development studio focused on turning ideas into reliable digital products. We build modern websites, custom web applications, business management systems, integrations, and automation solutions tailored to each client's requirements."
     },
     {
-      q: "Who owns the code, design assets, and intellectual property?",
-      a: "You own 100% of all intellectual property, source code, designs, and database schemas from day one. All repositories, Figma files, and cloud access keys are transferred directly to your organization upon completion."
+      q: "How much does a website or software project cost?",
+      a: "There is no one-size-fits-all price. The cost depends on the project's scope, number of pages or modules, design requirements, integrations, functionality, and technical complexity. Once we understand your requirements, we'll provide a clear quotation before development begins."
     },
     {
-      q: "How does PixelBros communicate and manage project progress?",
-      a: "We integrate directly into your workflow via a dedicated shared Slack or Discord channel. You will receive daily async Loom demo videos, transparent Linear task boards, and weekly live sync calls with your Lead Software Architect."
+      q: "How long does it take to build a website?",
+      a: "Project timelines depend on the scope and complexity. A straightforward business website can typically be completed faster than an e-commerce platform or custom web application. We'll provide an estimated timeline during the planning stage and keep you updated throughout development."
     },
     {
-      q: "Can PixelBros assist with App Store & Google Play approval?",
-      a: "Yes, absolutely. We manage the entire Apple App Store and Google Play publishing workflow, including TestFlight distribution, provisioning profiles, privacy manifest compliance, and App Store review resolution."
+      q: "Do you build custom websites or use templates?",
+      a: "We can work with different approaches depending on the project, but our focus is on building solutions around your business requirements. We don't believe your business should have to adapt to a website template. The technology, design, and functionality should work for you."
     },
     {
-      q: "What happens after the product launches?",
-      a: "Every project includes a 60-day post-launch warranty for bug fixes and performance monitoring. We also provide ongoing fractional engineering retainers for continuous feature roadmaps and scale optimization."
+      q: "Will my website work on mobile devices?",
+      a: "Yes. Our websites are built with responsive design principles so they provide a consistent experience across desktops, tablets, and mobile devices. We also consider performance and usability across different screen sizes during development and testing."
     },
     {
-      q: "What tech stack do you recommend for our project?",
-      a: "For web applications, our default is Next.js 16 with TypeScript and Tailwind CSS. For mobile, we recommend React Native with native Swift/Kotlin modules for unmatched velocity. For backends, we use Node.js, Python FastAPI, PostgreSQL with pgvector, and Cloudflare/AWS edge infrastructure."
+      q: "Do you provide domain, hosting, SSL, and deployment?",
+      a: "Yes. We can assist with the technical side of getting your website online, including domain configuration, hosting, DNS, SSL, deployment, and production setup. Our goal is to make the transition from development to production as smooth as possible."
+    },
+    {
+      q: "Do you provide SEO?",
+      a: "We implement essential technical and on-page SEO practices as part of relevant projects, including proper page structure, metadata, responsive design, performance considerations, and search-engine-friendly implementation. Ongoing SEO campaigns and digital marketing can be discussed separately based on your goals."
+    },
+    {
+      q: "Can Pixelbros build custom business software?",
+      a: "Absolutely. Websites are only one part of what we do. We can develop custom web-based systems such as HR platforms, dashboards, CRM solutions, booking systems, employee portals, internal management systems, reporting tools, and other applications designed around your workflow."
+    },
+    {
+      q: "Can you  integrate existing systems and APIs?",
+      a: "Yes. We can connect your application with third-party services and existing systems through APIs and other integration methods. This can include payment gateways, communication platforms, databases, authentication services, internal systems, and business automation workflows."
+    },
+    {
+      q: "Can Pixelbros automate repetitive business processes?",
+      a: "Yes. If a process is repetitive, rule-based, and currently requires significant manual work, it may be a good candidate for automation. We can analyse the workflow and develop scripts, scheduled tasks, integrations, or custom software to reduce manual effort and improve efficiency."
+    },
+    {
+      q: "What happens after my website or system goes live?",
+      a: "Going live is not necessarily the end of the project. We can provide ongoing maintenance and technical support, including bug fixes, updates, performance improvements, security-related maintenance, content or functionality changes, and future feature development depending on your support requirements."
+    },
+    {
+      q: "How do I start a project with Pixelbros?",
+      a: "Simply get in touch and tell us what you're trying to build, what problem you're trying to solve, and what you already have. We'll discuss your requirements, recommend an appropriate approach, define the scope, and provide a quotation before development begins."
+    },
+    {
+      q: "What does Pixels to production mean?",
+      a: "Pixels to production represents how we approach every project. We don't stop at creating something that looks good. We take an idea from concept and design through development, testing, deployment, and into a working production environment."
     }
   ];
 

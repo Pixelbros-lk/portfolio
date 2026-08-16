@@ -8,6 +8,7 @@ import ServicesPinned from "@/components/ServicesPinned";
 import MobbinShowcase from "@/components/WorkSection";
 import TestimonialsMarquee from "@/components/Reviews";
 import FaqSection from "@/components/Faq";
+import HowWeWork from "@/components/HowWeWork";
 import Footer from "@/components/Footer";
 import ContactModal from "@/components/ContactModal";
 import SplashScreen from "@/components/SplashScreen";
@@ -91,6 +92,9 @@ export default function Home() {
 
         {/* 7. Tech Stack Infinite Marquee & Client Reviews */}
         <TestimonialsMarquee />
+
+        {/* How We Work / Process Section */}
+        <HowWeWork />
 
         {/* 8. Frequently Asked Questions Accordion */}
         <FaqSection />
