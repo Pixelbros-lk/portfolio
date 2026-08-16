@@ -116,7 +116,7 @@ export default function HowWeWork() {
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-900 leading-tight">
             Our step-by-step workflow for shipping{" "}
-            <span className="text-transparent bg-clip-text bg-[#FE4845] bg-gradient-to-r from-[#FE4845] to-[#FF7573]">
+            <span className="text-transparent bg-clip-text bg-[#FE4845] bg-linear-to-r from-[#FE4845] to-[#FF7573]">
               top-tier software.
             </span>
           </h2>
@@ -132,7 +132,7 @@ export default function HowWeWork() {
             return (
               <div
                 key={step.num}
-                className="process-card group relative p-8 rounded-3xl bg-white border border-zinc-200/80 hover:border-[#FE4845]/30 hover:shadow-xl hover:shadow-zinc-150/45 transition-colors transition-shadow duration-500 flex flex-col gap-5 overflow-hidden"
+                className="process-card group relative p-8 rounded-3xl bg-white border border-zinc-200/80 hover:border-[#FE4845]/30 hover:shadow-xl hover:shadow-zinc-150/45 transition-colors duration-500 flex flex-col gap-5 overflow-hidden"
               >
                 {/* Large Background Step Number */}
                 <span className="absolute -top-4 -right-2 text-8xl font-black font-mono text-zinc-100/70 select-none group-hover:text-[#FE4845]/5 transition-colors duration-500 leading-none">
@@ -150,7 +150,7 @@ export default function HowWeWork() {
                 </div>
 
                 {/* Content */}
-                <div className="space-y-2 relative z-10 flex-grow">
+                <div className="space-y-2 relative z-10 grow">
                   <h3 className="text-xl font-bold text-zinc-950 tracking-tight transition-colors duration-300">
                     {step.title}
                   </h3>
@@ -160,7 +160,7 @@ export default function HowWeWork() {
                 </div>
 
                 {/* Bottom decorative line/hover highlight */}
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#FE4845] to-[#FF7573] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-[#FE4845] to-[#FF7573] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </div>
             );
           })}
@@ -180,10 +180,10 @@ export default function HowWeWork() {
             From{" "}
             <span className="text-[#FE4845] relative inline-block">
               pixels
-              <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-[4px] sm:h-[6px] bg-[#FE4845]/20 rounded-full" />
+              <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-1 sm:h-1.5 bg-[#FE4845]/20 rounded-full" />
             </span>{" "}
             to{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FE4845] via-[#FF7573] to-[#D02927]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#FE4845] via-[#FF7573] to-[#D02927]">
               production.
             </span>
           </h3>
