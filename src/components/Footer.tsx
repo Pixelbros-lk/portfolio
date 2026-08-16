@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Sparkles, ArrowRight } from "lucide-react";
+import { Sparkles, ArrowRight, Mail } from "lucide-react";
 
 interface FooterProps {
   onOpenContact: () => void;
@@ -46,26 +46,32 @@ export default function Footer({ onOpenContact }: FooterProps) {
 
           {/* Brand Column (2 cols on md) */}
           <div className="col-span-2 space-y-4">
-            <a href="#" className="flex items-center gap-3">
-              <div className="relative w-8 h-8 rounded-lg bg-[#FE4845] flex items-center justify-center shadow-md">
-                <div className="w-3.5 h-3.5 grid grid-cols-2 gap-0.5">
-                  <div className="bg-white rounded-[1px]" />
-                  <div className="bg-white/80 rounded-[1px]" />
-                  <div className="bg-white/60 rounded-[1px]" />
-                  <div className="bg-red-200 rounded-[1px]" />
-                </div>
+            <a href="#" className="flex items-center gap-3 group">
+              <div className="relative w-9 h-9 overflow-hidden rounded-xl border border-zinc-200 shadow-sm group-hover:scale-105 transition-transform duration-300">
+                <img src="/icon.png" className="w-full h-full object-cover" alt="PixelBros Logo" />
               </div>
-              <span className="text-lg font-bold text-zinc-900 font-mono">PixelBros</span>
+              <div className="flex flex-col">
+                <span className="text-lg font-bold text-zinc-900 font-mono">PixelBros</span>
+              </div>
             </a>
 
             <p className="text-xs text-zinc-600 max-w-sm leading-relaxed font-normal">
               Bespoke custom website and mobile application development company specialized in custom web applications, high-performance mobile apps, and enterprise full-stack solutions.
             </p>
 
+            {/* Email Address Section */}
+            <a
+              href="mailto:info@pixelbros.com"
+              className="group flex items-center gap-2 text-xs font-semibold text-zinc-500 hover:text-[#FE4845] transition-colors duration-200"
+            >
+              <Mail className="w-4 h-4 text-zinc-400 group-hover:text-[#FE4845] transition-colors duration-200" />
+              <span className="font-mono">info@pixelbros.online</span>
+            </a>
+
             {/* Social Icons (SVGs) */}
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="https://github.com"
+                href="https://github.com/Pixelbros-lk"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
@@ -76,18 +82,18 @@ export default function Footer({ onOpenContact }: FooterProps) {
                 </svg>
               </a>
               <a
-                href="https://twitter.com"
+                href="https://facebook.com/pixelbros.lk"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="X / Twitter"
                 className="w-8 h-8 rounded-lg bg-zinc-200 hover:bg-[#FE4845] hover:text-white text-zinc-600 flex items-center justify-center transition-colors"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
                 </svg>
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/company/pixelbros-lk"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
@@ -111,26 +117,25 @@ export default function Footer({ onOpenContact }: FooterProps) {
             </ul>
           </div>
 
-          {/* Column 3: Our Work */}
+          {/* Column 3: Quick Links */}
           <div className="space-y-3">
-            <div className="text-xs font-mono text-zinc-800 uppercase font-bold">Our Work</div>
-            <ul className="space-y-2 text-xs text-zinc-500 font-semibold">
-              <li><a href="#showcase" className="hover:text-[#FE4845] transition-colors">HyperFlow SaaS (Web)</a></li>
-              <li><a href="#showcase" className="hover:text-[#FE4845] transition-colors">ApexPay Neobank (iOS)</a></li>
-              <li><a href="#showcase" className="hover:text-[#FE4845] transition-colors">SynthAI Workspace</a></li>
-              <li><a href="#showcase" className="hover:text-[#FE4845] transition-colors">Solis Luxe 3D Ecom</a></li>
-            </ul>
-          </div>
-
-          {/* Column 4: Company */}
-          <div className="space-y-3">
-            <div className="text-xs font-mono text-zinc-800 uppercase font-bold">Company</div>
+            <div className="text-xs font-mono text-zinc-800 uppercase font-bold">Quick Links</div>
             <ul className="space-y-2 text-xs text-zinc-500 font-semibold">
               <li><a href="#architecture" className="hover:text-[#FE4845] transition-colors">Home</a></li>
               <li><a href="#estimator" className="hover:text-[#FE4845] transition-colors">About</a></li>
               <li><a href="#faq" className="hover:text-[#FE4845] transition-colors">Services</a></li>
               <li><a href="#showcase" className="hover:text-[#FE4845] transition-colors">Work</a></li>
               <li><button onClick={() => onOpenContact()} className="hover:text-[#FE4845] text-[#FE4845] transition-colors">Contact Us</button></li>
+            </ul>
+          </div>
+
+
+          {/* Column 4: Company */}
+          <div className="space-y-3">
+            <div className="text-xs font-mono text-zinc-800 uppercase font-bold">Company</div>
+            <ul className="space-y-2 text-xs text-zinc-500 font-semibold">
+              <li><a href="#showcase" className="hover:text-[#FE4845] transition-colors">Privacy Policy</a></li>
+              <li><a href="#showcase" className="hover:text-[#FE4845] transition-colors">Terms of Service</a></li>
             </ul>
           </div>
 
