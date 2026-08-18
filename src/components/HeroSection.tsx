@@ -107,21 +107,21 @@ export default function HeroSection({ onOpenContact }: HeroSectionProps) {
             ref={ctaRef}
             className="mt-10 flex flex-wrap items-center justify-center gap-4"
           >
-            <button
-              onClick={() => onOpenContact()}
+            <a
+              href="#work"
               className="px-7 py-3.5 rounded-full bg-linear-to-r from-[#FE4845] via-[#FE4845] to-[#FF7573] text-white font-semibold text-sm shadow-xl shadow-[#FE4845]/20 hover:shadow-[#FE4845]/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 group cursor-pointer"
             >
               <span>View Our Work</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
 
-            <a
-              href="#showcase"
-              className="px-6 py-3.5 rounded-full bg-zinc-50 border border-zinc-200 hover:border-zinc-300 text-zinc-700 hover:text-zinc-900 font-medium text-sm transition-all flex items-center justify-center gap-2 hover:bg-zinc-100/80"
+            <button
+              onClick={() => onOpenContact()}
+              className="px-6 py-3.5 rounded-full bg-zinc-50 border border-zinc-200 hover:border-zinc-300 text-zinc-700 hover:text-zinc-900 font-medium text-sm transition-all flex items-center justify-center gap-2 hover:bg-zinc-100/80 cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 text-[#FE4845]" />
               <span>Let's Talk</span>
-            </a>
+            </button>
           </div>
         </div>
 
