@@ -121,10 +121,10 @@ export default function Footer({ onOpenContact }: FooterProps) {
           <div className="space-y-3">
             <div className="text-xs font-mono text-zinc-800 uppercase font-bold">Quick Links</div>
             <ul className="space-y-2 text-xs text-zinc-500 font-semibold">
-              <li><a href="#architecture" className="hover:text-[#FE4845] transition-colors">Home</a></li>
-              <li><a href="#estimator" className="hover:text-[#FE4845] transition-colors">About</a></li>
-              <li><a href="#faq" className="hover:text-[#FE4845] transition-colors">Services</a></li>
-              <li><a href="#showcase" className="hover:text-[#FE4845] transition-colors">Work</a></li>
+              <li><a href="#" className="hover:text-[#FE4845] transition-colors">Home</a></li>
+              <li><a href="#about" className="hover:text-[#FE4845] transition-colors">About</a></li>
+              <li><a href="#services" className="hover:text-[#FE4845] transition-colors">Services</a></li>
+              <li><a href="#work" className="hover:text-[#FE4845] transition-colors">Work</a></li>
               <li><button onClick={() => onOpenContact()} className="hover:text-[#FE4845] text-[#FE4845] transition-colors">Contact Us</button></li>
             </ul>
           </div>
@@ -134,8 +134,8 @@ export default function Footer({ onOpenContact }: FooterProps) {
           <div className="space-y-3">
             <div className="text-xs font-mono text-zinc-800 uppercase font-bold">Company</div>
             <ul className="space-y-2 text-xs text-zinc-500 font-semibold">
-              <li><a href="#showcase" className="hover:text-[#FE4845] transition-colors">Privacy Policy</a></li>
-              <li><a href="#showcase" className="hover:text-[#FE4845] transition-colors">Terms of Service</a></li>
+              <li><a href="#" className="hover:text-[#FE4845] transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="hover:text-[#FE4845] transition-colors">Terms of Service</a></li>
             </ul>
           </div>
 
