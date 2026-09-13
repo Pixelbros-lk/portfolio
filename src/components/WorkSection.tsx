@@ -9,16 +9,29 @@ interface MobbinShowcaseProps {
 }
 
 export default function MobbinShowcase({ onOpenContact }: MobbinShowcaseProps) {
-  // We only need one ref now to target the scrollable container
   const trackRef = useRef<HTMLDivElement>(null);
 
   const portfolios = [
     {
-      id: "tarbid",
+      id: "sayuyasanga",
       title: "Sayu Yasanga - Photography",
       badge: "Custom Website",
       link: "https://www.sayuyasangaweddings.com/",
       imageUrl: "/images/sayu.webp"
+    },
+    {
+      id: "gausl",
+      title: "Girne American University Sri Lanka",
+      badge: "Custom Website",
+      link: "https://gausl.com/",
+      imageUrl: "/images/gausl.webp"
+    },
+    {
+      id: "metropolitan",
+      title: "Document Verification System - Metropolitan College",
+      badge: "Web Application",
+      link: "https://docs.metropolitancollegeedu.com/",
+      imageUrl: "/images/metro.webp"
     },
     {
       id: "steam",
@@ -32,7 +45,7 @@ export default function MobbinShowcase({ onOpenContact }: MobbinShowcaseProps) {
   // The scroll function attached to buttons
   const scroll = (direction: "left" | "right") => {
     if (trackRef.current) {
-      // Calculate how far to scroll (width of one card + the 32px gap)
+      // Calculate how far to scroll
       const firstCard = trackRef.current.children[0] as HTMLElement;
       const scrollAmount = firstCard.clientWidth + 32; 
       
